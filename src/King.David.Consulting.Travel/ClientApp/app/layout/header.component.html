@@ -1,0 +1,63 @@
+<div class='main-nav'>
+    <div class='navbar navbar-inverse'>
+        <div class='navbar-header'>
+            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <a class='navbar-brand' [routerLink]="['/home']">Home</a>
+        </div>
+        <div class='clearfix'></div>
+
+        <div class='navbar-collapse collapse'>
+            <!-- Show this for logged out users -->
+            <ul *showAuthed="false" class='nav navbar-nav'>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" routerLinkActive="active">
+                <span class='glyphicon glyphicon-log-in'></span>
+          Sign in
+        </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/register" routerLinkActive="active">
+                <span class='glyphicon glyphicon-check'></span>
+          Sign up
+        </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/about']">
+                        <span class='glyphicon glyphicon-th-list'></span> About
+                    </a>
+                </li>
+            </ul>
+
+            <ul *showAuthed="true" class='nav navbar-nav'>
+
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/home']">
+                        <span class='glyphicon glyphicon-home'></span> Home
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/locations', currentUser.username]">
+                        <span class='glyphicon glyphicon-th-list'></span> Locations
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/about']">
+                        <span class='glyphicon glyphicon-th-list'></span> About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-danger"
+                    (click)="logout()">
+                     Logout.
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

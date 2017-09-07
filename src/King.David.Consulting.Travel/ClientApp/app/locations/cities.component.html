@@ -1,0 +1,25 @@
+<ul>
+  <li *ngFor="let city of results; let i = index">
+      {{city.name}}
+ </li>
+</ul>
+
+<div class="preview"
+  [hidden]="!loading">
+  Loading Cities...
+</div>
+
+<nav [hidden]="loading || totalPages <= 1">
+  <ul class="pagination">
+
+    <li class="page-item"
+      [ngClass]="{'active': pageNumber === currentPage}"
+      *ngFor="let pageNumber of totalPages"
+      (click)="setPageTo(pageNumber)">
+
+      <a class="page-link" [routerLink]="['/locations', currentUser]">{{ pageNumber }}</a>
+
+    </li>
+
+  </ul>
+</nav>

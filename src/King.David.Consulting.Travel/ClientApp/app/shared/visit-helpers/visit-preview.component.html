@@ -1,0 +1,14 @@
+<div>
+  <a [routerLink]="['/user', visit.userName]">
+   <span class='glyphicon glyphicon glyphicon-user'></span> {{ visit.userName}}
+   </a>
+  <a [routerLink]="['/visit', visit.visitId]">
+    <p> <span class="glyphicon glyphicon-map-marker"></span> {{visit.city}} - {{ visit.state }}
+      <span class="date">
+      {{ visit.VisitedOn | date: 'longDate' }}</span>
+      <span>See details...</span>
+    </p>
+
+  </a>
+</div>
+<br>
